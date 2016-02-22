@@ -33,8 +33,13 @@ $row = $result->fetch_assoc();
 <h2><?=$row["Price"];?> eur</h2>
 
 <p>
-    <?=$row["Description"];?>
+  <?=$row["Description"];?>
 </p>
+
+<form method="post" action="cart.php">
+  <input type="hidden" name="id" value="<?=$_GET["id"];?>"/>
+  <input type="submit" value="Add to cart"/>
+</form>
 
 <?php
 include 'footer.php';
