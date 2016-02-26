@@ -23,6 +23,27 @@ if (array_key_exists($product_id, $_SESSION["cart"])) {
 
 <?php var_dump($_SESSION["cart"]); ?>
 
+<?php 
+$result = $conn->query("SELECT id, Name, Price FROM etienne;");
+
+while ($row = $result->fetch_assoc()) {
+    if (array_key_exists($row['id'], $_SESSION["cart"])) {
+    ?>   
+    <li>
+        <?=$_SESSION["cart"][$row['id']];?> item(s) of <a href="description.php?id=<?=$row['id']?>">
+            <?=$row['Name']?></a>
+            <?=$row['Price']?>Eur
+    </li>
+    <?php
+    
+    }
+}
+
+$conn->close();
+
+?>
+
+
 <?php
 include "footer.php";
 ?>
