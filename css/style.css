@@ -1,5 +1,32 @@
 /* Apply font family to paragraphs */
 
 p, ul, li, h1, h2, h {
-  font-family: arial;
+  font-family: sans;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body, footer { /*This overrides the body CSS above*/
+  margin: 0 auto;
+  padding: 0 1em;
+  background-color: #FF3399
+}
+
+footer { /*This overrides the body CSS above*/
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 60em;
+  background-color: #FF3399
+}
+
+#content {
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 60em;
+  border: 1px solid black;
+  background-color: #99FF66
+}
+

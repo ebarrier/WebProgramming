@@ -6,7 +6,6 @@ if (!array_key_exists("cart", $_SESSION)) {
     $_SESSION["cart"] = array();
     // Here we store product it -> count mapping
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -24,3 +23,4 @@ if (!array_key_exists("cart", $_SESSION)) {
 
 
 <body>
+<div id="content">
