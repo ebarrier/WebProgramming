@@ -27,16 +27,17 @@ if (array_key_exists($product_id, $_SESSION["cart"])) {
 $result = $conn->query("SELECT id, Name, Price FROM etienne;");
 
 while ($row = $result->fetch_assoc()) {
-    if (array_key_exists($row['id'], $_SESSION["cart"])) {
-    ?>   
-    <li>
-        <?=$_SESSION["cart"][$row['id']];?> item(s) of <a href="description.php?id=<?=$row['id']?>">
-            <?=$row['Name']?></a>
-            <?=$row['Price']?>Eur
-    </li>
-    <?php
+  if (array_key_exists($row['id'], $_SESSION["cart"])) {
+  $count = $_SESSION["cart"][$row['id']];?>   
+  <li>
+    <?=$count;?> item(s) of <a href="description.php?id=<?=$row['id']?>">
+      <?=$row['Name']?></a>
+      <?=$row['Price']?>Eur. <?= $row['Price']*$count?> in total
+  </li>
+
+  <?php
     
-    }
+  }
 }
 
 $conn->close();
