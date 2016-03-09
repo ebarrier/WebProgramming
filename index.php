@@ -9,12 +9,26 @@ $conn->query("set names utf8");
 if (!array_key_exists("timestamp", $_SESSION)) {
   $_SESSION["timestamp"] = date('l jS \of F Y h:i:s A');
 }
-
 ?>
 
 <h1>Etienne's webshop</h1>
 <p>Welcome to the webshop where you will find everything you need</p>
 <p>You have a cookie set up for you since: <?=$_SESSION["timestamp"];?></p>
+
+<p>Please login<p>
+
+<?php
+if (array_key_exists("user", $_SESSION)) {
+    echo "Hello" . $_SESSION["user"];
+} else { ?>
+
+<form action="login.php" method="post">
+  <input type="text" name="user"/>
+  <input type="password" name="password"/>
+  <input type="submit" value="Log in!"/>
+</form> <?php } ?>
+
+<a href="registration.php">Sign up!</a>.
 
 <h2>Products in your shopping cart</h2>
 
