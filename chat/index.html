@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<title>Etienne Webshop</title>
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+
+<h1> Chat room </h1>
+
+<div>Messages</div>
+<br>
+
+  <input name="inputbox" id="msg" type="text" placeholder="type your message" onKeyDown="if(event.keyCode==13){sendMsg(); return false;}"/> <!--We do not use a form because we do not want the page to reload or the url to change-->
+  <button onClick="sendMsg();" >Go!</button>
+
+</body>
+</html>
