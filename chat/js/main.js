@@ -19,6 +19,6 @@ function sendMsg() {
   var request = new XMLHttpRequest();
   request.open('POST', 'http://push.koodur.com/pub?id=chatroom', true);
   request.send(document.querySelector("#msg").value);
-  document.inputbox.value="";
+  document.querySelector("#msg").value="";
 }
 

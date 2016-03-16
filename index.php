@@ -19,14 +19,17 @@ if (!array_key_exists("timestamp", $_SESSION)) {
 
 <?php
 if (array_key_exists("user", $_SESSION)) {
-    echo "Hello" . $_SESSION["user"];
+    //If the $_SESSION["user"] is set we say hello
+    echo "Hello" . $_SESSION["user"];?>
+    <a href="logout.php">Log out<a>
+<?php
 } else { ?>
-
-<form action="login.php" method="post">
-  <input type="text" name="user"/>
-  <input type="password" name="password"/>
-  <input type="submit" value="Log in!"/>
-</form> <?php } ?>
+  //else we display the login 
+  <form action="login.php" method="post">
+    <input type="text" name="user"/>
+    <input type="password" name="password"/>
+    <input type="submit" value="Log in!"/>
+  </form> <?php } ?>
 
 <a href="registration.php">Sign up!</a>.
 

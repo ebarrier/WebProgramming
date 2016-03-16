@@ -17,7 +17,8 @@ $result = $statement->get_result();
 $row = $result->fetch_assoc();
 
 if($row) {
-  echo "Login succesful, hello " . $row["firstname"];
+  $_SESSION["user"] = $row["id"]; // This just stores user row number
+  header('Location: index.php'); //This will redirect back to index.php
 } else {
   echo "You are not known"?> <a href="registration.php">please register</a>
 
