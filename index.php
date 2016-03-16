@@ -9,7 +9,7 @@ $conn->query("set names utf8");
 if (!array_key_exists("timestamp", $_SESSION)) {
   $_SESSION["timestamp"] = date('l jS \of F Y h:i:s A');
 }
-var_dump($_SESSION); //This is just to show the content of $_SESSION variable
+//var_dump($_SESSION); //This is just to show the content of $_SESSION variable
 ?>
 
 

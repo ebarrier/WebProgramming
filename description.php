@@ -7,17 +7,7 @@ if ($conn->connect_error)
 $conn->query("set names utf8");
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta charset="utf-8"/>
-<meta name="description" content="Etienne page to learn HTML/PHP">
-<title>description</title>
-</head>
-
-
-<body>
+<h1>Description of the product</h1>
 
 <a href="index.php">Go back to main page</a>
 
