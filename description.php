@@ -22,7 +22,7 @@ $conn->query("set names utf8");
 <a href="index.php">Go back to main page</a>
 
 <?php 
-$statement = $conn->prepare("SELECT Name, Description, Price FROM etienne WHERE id = ?");
+$statement = $conn->prepare("SELECT Name, Description, Price FROM etienne_products WHERE id = ?");
 $statement->bind_param("i", $_GET["id"]); //GET to extract it from the page's URL (?id=12)
 $statement->execute();
 $result = $statement->get_result();
@@ -40,12 +40,6 @@ $row = $result->fetch_assoc();
   <input type="hidden" name="id" value="<?=$_GET["id"];?>"/>
   <input type="hidden" name="count" value="1"/>
   <input type="submit" value="Add to cart"/>
-<select name="count">
-  <option value="one">1</option>
-  <option value="two">2</option>
-  <option value="three">3</option>
-  <option value="four">4</option>
-</select>
 </form>
 
 

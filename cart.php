@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <?php var_dump($_SESSION["cart"]); ?>
 
 <?php 
-$result = $conn->query("SELECT id, Name, Price FROM etienne;");
+$result = $conn->query("SELECT id, Name, Price FROM etienne_products;");
 $result or die("Connection to database failed:".$conn->connect_error); //if result is true, the second expression is not checked.
 
 while ($row = $result->fetch_assoc()) {
