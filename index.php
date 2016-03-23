@@ -12,7 +12,6 @@ if (!array_key_exists("timestamp", $_SESSION)) {
 //var_dump($_SESSION); //This is just to show the content of $_SESSION variable
 ?>
 
-
 <h1>Etienne's webshop</h1>
 <p>Welcome to the webshop where you will find everything you need</p>
 <p>You have a cookie set up for you since: <?=$_SESSION["timestamp"];?></p>
@@ -24,6 +23,7 @@ if (array_key_exists("user", $_SESSION)) {
     //If the $_SESSION["user"] is set we say hello with his name
     $results = $conn->query("SELECT * FROM etienne_users
     WHERE id = " . $_SESSION["user"]);
+    
     $row = $results->fetch_assoc();
     echo "Hello " . $row["firstname"] . " " . $row["lastname"];?>
     <br>
@@ -39,9 +39,8 @@ if (array_key_exists("user", $_SESSION)) {
 <?php } ?>
 
 <h2>Products in your shopping cart</h2>
-<a href="cart.php">See your cart</a>
-
-<?php var_dump($_SESSION["cart"]); ?>
+<a href="cart.php">My shopping cart</a>
+<a href="orders.php">My orders</a>
 
 <h2>The product we have are:</h2>
 <ul>

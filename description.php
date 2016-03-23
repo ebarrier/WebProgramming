@@ -13,8 +13,11 @@ $conn->query("set names utf8");
 
 <?php 
 $statement = $conn->prepare("SELECT Name, Description, Price FROM etienne_products WHERE id = ?");
+if (!$statement) die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
 $statement->bind_param("i", $_GET["id"]); //GET to extract it from the page's URL (?id=12)
-$statement->execute();
+if (!$statement->execute()) {
+    die("Execute failed: (" . $statement->errno . ") " . $statement->error);}
+
 $result = $statement->get_result();
 $row = $result->fetch_assoc();
 ?>

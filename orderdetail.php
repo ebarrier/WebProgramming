@@ -9,7 +9,7 @@ $conn->query("set names utf8");
 $statement = $conn->prepare(
 "SELECT
   `etienne_order_products`.`id` AS `order_product_id`,
-  `etienne_order_products`.`product_id` AS `Product ID`,
+  `etienne_order_products`.`product_id` AS `product_id`,
   `etienne_products`.`Name` AS `product_name`,
   `etienne_order_products`.`unit_price` AS `order_product_unit_price`,
   `etienne_order_products`.`count` AS `order_product_count`,
@@ -41,4 +41,6 @@ $results = $statement->get_result();
     </li><?php
   }
 ?>
+
+<a href="index.php">Go back to main page</a>
 <?php include "footer.php"; ?>

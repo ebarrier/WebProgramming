@@ -16,11 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   } else {
       $_SESSION["cart"][$product_id] = intval($_POST["count"]);
   }
-  
   if ($_SESSION["cart"][$product_id]<=0) {
     unset($_SESSION["cart"][$product_id]);
   }
-
 }
 ?>
 
@@ -29,8 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <p>You have a cookie set up for you since: <?=$_SESSION["timestamp"];?></p>
 <a href="index.php">Go back to main page</a>
 <h2>Products in your shopping cart</h2>
+  <form method="post" action="placeorder.php">
+      <input type="submit" value="Place order"/>
+  </form>
 
-<?php var_dump($_SESSION["cart"]); ?>
+<?php// var_dump($_SESSION["cart"]); ?>
 
 <?php 
 $result = $conn->query("SELECT id, Name, Price FROM etienne_products;");
@@ -50,17 +51,11 @@ while ($row = $result->fetch_assoc()) {
       <input type="submit" value="Remove"/>
     </form>
   </li>
-
   <?php
-    
   }
-}
+} 
 
 $conn->close();
 
-?>
-
-
-<?php
 include "footer.php";
 ?>
