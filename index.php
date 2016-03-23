@@ -34,11 +34,12 @@ if (array_key_exists("user", $_SESSION)) {
     <input type="text" name="user"/>
     <input type="password" name="password"/>
     <input type="submit" value="Log in!"/>
-  </form> <?php } ?>
-
-<a href="registration.php">Sign up!</a>
+  </form> 
+  <a href="registration.php">Sign up!</a>
+<?php } ?>
 
 <h2>Products in your shopping cart</h2>
+<a href="cart.php">See your cart</a>
 
 <?php var_dump($_SESSION["cart"]); ?>
 
