@@ -9,14 +9,13 @@ $conn->query("set names utf8");
 if (!array_key_exists("timestamp", $_SESSION)) {
   $_SESSION["timestamp"] = date('l jS \of F Y h:i:s A');
 }
-//var_dump($_SESSION); //This is just to show the content of $_SESSION variable
+echo "Session user: ";
+var_dump($_SESSION["user"]); //This is just to show the content of $_SESSION variable
 ?>
 
 <h1>Etienne's webshop</h1>
 <p>Welcome to the webshop where you will find everything you need</p>
 <p>You have a cookie set up for you since: <?=$_SESSION["timestamp"];?></p>
-
-<p>Please login<p>
 
 <?php
 if (array_key_exists("user", $_SESSION)) {
@@ -29,17 +28,20 @@ if (array_key_exists("user", $_SESSION)) {
     <br>
     <a href="logout.php">Log out<a>
 <?php
-} else { //else we display the login page ?>
+} else { //else we display the login page
+    ?> <p>Please login<p>
   <form action="login.php" method="post">
     <input type="text" name="user"/>
     <input type="password" name="password"/>
     <input type="submit" value="Log in!"/>
   </form> 
-  <a href="registration.php">Sign up!</a>
+  <form action="registration.php" method="post">
+    <input type="submit" value="Sign up!"/>
+  </form> 
 <?php } ?>
 
 <h2>Products in your shopping cart</h2>
-<a href="cart.php">My shopping cart</a>
+<a href="cart.php">My shopping cart</a> <br>
 <a href="orders.php">My orders</a>
 
 <h2>The product we have are:</h2>

@@ -22,7 +22,7 @@ if($row) { //if the key-value pair user_id-password exists
   $_SESSION["user"] = $row["id"]; // This just stores user row number
   header('Location: index.php'); //This will redirect back to index.php
 } else {
-  echo "You are not known"?> <a href="registration.php">please register</a>
+  echo "You are not known"?> <a href="registration.php">please sign up!</a>
 
 <?php 
 } 
