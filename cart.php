@@ -1,4 +1,3 @@
-
 <?php
 require_once "config.php";
 include "header.php";
@@ -40,17 +39,19 @@ $result or die("Connection to database failed:".$conn->connect_error); //if resu
 while ($row = $result->fetch_assoc()) {
   $product_id= $row['id'];
   if (array_key_exists($row['id'], $_SESSION["cart"])) {
-  $count = $_SESSION["cart"][$product_id];?>
+    $count = $_SESSION["cart"][$product_id];?>
+  <div id="shopping_cart">  
   <li>
     <?=$count;?> item(s) of <a href="description.php?id=<?=$product_id?>">
       <?=$row['Name']?></a>
       <?=$row['Price']?>Eur. <?= $row['Price']*$count?> in total
-    <form method="post">
+    <form  method="post">
       <input type="hidden" name="id" value="<?=$product_id;?>"/>
       <input type="hidden" name="count" value="-1"/>
       <input type="submit" value="Remove"/>
     </form>
   </li>
+  </div>
   <?php
   }
 } 

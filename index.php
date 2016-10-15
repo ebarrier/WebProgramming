@@ -22,7 +22,7 @@ if (array_key_exists("user", $_SESSION)) {
     //If the $_SESSION["user"] is set we say hello with his name
     $results = $conn->query("SELECT * FROM etienne_users
     WHERE id = " . $_SESSION["user"]);
-    
+
     $row = $results->fetch_assoc();
     echo "Hello " . $row["firstname"] . " " . $row["lastname"];?>
     <br>
@@ -40,7 +40,11 @@ if (array_key_exists("user", $_SESSION)) {
   </form> 
 <?php } ?>
 
+
+
 <h2>Products in your shopping cart</h2>
+<button id="update_cart">Update cart</button>
+<div id="shopping_cart">Your shopping cart is empty</div>
 <a href="cart.php">My shopping cart</a> <br>
 <a href="orders.php">My orders</a>
 
